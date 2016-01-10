@@ -1,0 +1,82 @@
+extends ./layouts/main.jade
+
+block title 
+	title Homepage Page
+	
+block content
+	- var models = [{'name': 'Nguyễn Ngọc Kỳ Hân', 'img': 'img/models/1.jpg'},{'name': 'Trà Thanh Như Thủy', 'img': 'img/models/2.jpg'},{'name': 'Bách Kỳ Ngọc Hạnh', 'img': 'img/models/3.jpg'},{'name': 'Lê Minh Trang', 'img': 'img/models/4.jpg'},{'name': 'Nguyễn Ngọc Thanh Trà', 'img': 'img/models/5.jpg'},{'name': 'Hà Thanh Liên', 'img': 'img/models/6.jpg'},{'name': 'Nguyễn Dương Minh Châu', 'img': 'img/models/7.jpg'},{'name': 'Dương Nguyễn Thùy Dương', 'img': 'img/models/8.jpg'},{'name': 'Lê Hải Như', 'img': 'img/models/9.jpg'},{'name': 'Đào Lam Giang', 'img': 'img/models/10.jpg'}, {'name': 'Nguyễn Ngọc Kỳ Hân', 'img': 'img/models/4.jpg'},{'name': 'Trà Thanh Như Thủy', 'img': 'img/models/3.jpg'},{'name': 'Bách Kỳ Ngọc Hạnh', 'img': 'img/models/7.jpg'},{'name': 'Lê Minh Trang', 'img': 'img/models/11.jpg'},{'name': 'Nguyễn Ngọc Thanh Trà', 'img': 'img/models/5.jpg'},{'name': 'Hà Thanh Liên', 'img': 'img/models/6.jpg'},{'name': 'Nguyễn Dương Minh Châu', 'img': 'img/models/7.jpg'},{'name': 'Dương Nguyễn Thùy Dương', 'img': 'img/models/8.jpg'},{'name': 'Lê Hải Như', 'img': 'img/models/11.jpg'},{'name': 'Đào Lam Giang', 'img': 'img/models/2.jpg'}];
+	- var news = [{'title': 'Lorem ipsum dolor sit amet', 'img': 'http://placehold.it/350x350', 'short': 'Lorem ipsum dolor sit amet, consectetur adipiscing et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'},{'title': 'Sed ut perspiciatis unde omnis', 'img': 'http://placehold.it/350x350', 'short': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ulla.'},{'title': 'Nemo enim ipsam voluptatem quia', 'img': 'http://placehold.it/350x350', 'short': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'},{'title': 'Excepteur sint occaecat cupidatat', 'img': 'http://placehold.it/350x350', 'short': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'},{'title': 'Ut enim ad minim veniam', 'img': 'http://placehold.it/350x350', 'short': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'},{'title': 'Duis aute irure dolor in reprehenderit', 'img': 'http://placehold.it/350x350', 'short': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'}];
+	- var partners = ['img/logo/1.png', 'img/logo/2.png', 'img/logo/3.png', 'img/logo/4.png', 'img/logo/5.png', 'img/logo/6.png', 'img/logo/7.png', 'img/logo/8.png', 'img/logo/9.png'];
+	.content-block.main-slider
+		a(href="#")
+			img(src="img/slide/1.jpg", alt="")
+	.container
+		.row
+			.col-md-12
+				.content-block.new-models
+					h2.content-block-title Models / PG Mới
+					
+					.swiper-models-slide-prev
+						i.fa.fa-angle-left
+					.swiper-container.models-slide
+						.swiper-wrapper
+							each val, idx in models.length ? models : ['There are no values']
+								.swiper-slide.model-item
+									a(href="#")
+										img(src=val.img, alt="")
+										figcaption
+											p= val.name
+					.swiper-models-slide-next
+						i.fa.fa-angle-right
+					a.search-link(href="#") 
+						i.fa.fa-search
+						| Tìm kiếm
+
+	.container
+		.row
+			.col-md-12
+				.content-block.aboutus
+					h2.content-block-title Về chúng tôi
+					.content-block-content
+						p Et architecto quisque lacus, facilisis ab! Vestibulum ridiculus? Dignissimos gravida nascetur conubia? Rhoncus, facilisi montes dolores? Facilis praesent, saepe, possimus mauris id, sodales morbi. Quis! Proident nonummy explicabo debitis animi porro curabitur, neque error nesciunt ad purus soluta? Aute vulputate suscipit mattis? Nostrum elementum delectus eos placerat nibh excepturi ipsa viverra vitae! Maiores dicta, ab minus soluta cumque nibh autem, iusto vehicula ullamcorper repellendus potenti eveniet. Semper parturient mi harum minim magna eget nascetur? Ratione reiciendis, magna augue optio ipsa nunc sapien nihil quo? Fringilla nemo. Duis consequuntur incidunt eveniet volutpat. Id vestibiii
+						p Ut voluptatum aliquam, ullamco et sapien! Ea justo aperiam nemo? Quasi commodo nascetur accumsan possimus conubia? Eleifend omnis? Deleniti placerat imperdiet commodi adipisci facere quasi fusce, consectetur viverra condimentum deleniti, cillum class cillum ac tincidunt? Ligula, suspendisse minima, dapibus tempore vulputate quaerat cupidatat inventore sapiente incidunt fermentum sociis eveniet montes leo itaque voluptatibus cupidatat platea minim. Incididunt tempore, eum sunt. Id sociis adipisicing, nisl. Hac nullam voluptatum per varius accumsan dictumst porttitor, corporis voluptas exercitation asperiores quia similique fugit parturient. Similique, nullam cupiditate purus! Leo dicta minus maxime ex asperiores, nobis habitasse voluptatem consequatur alias suscipit, ante beatae curabitur? Enim.
+						p Morbi egestas, cumque! Amet aspernatur cupiditate! Dignissim repellendus libero, tempor praesentium class, dui repellat? Blandit mollitia metus dolorem anim odio mattis temporibus faucibus cupidatat, dolor felis minus platea ducimus odio? Dolore est, lacinia at sapien ad? Diamlorem imperdiet, eveniet risus elementum enim, deserunt tempor risus dolores potenti pulvinar, vulputate necessitatibus habitasse mollitia, nec illo. Deserunt mus deserunt pede? Placeat tempore. Provident, occaecati reiciendis nullam sem explicabo, cupiditate diam, aptent ullamcorper nisl iste, velit quibusdam nostrum aptent nibh dolore, ratione donec, mus tortor excepturi curae! Soluta cum consequatur expedita! Donec cupiditate consectetuer temporibus aliquam cubilia laudantium, hac phasellus turpis occaecat nunc.
+
+
+	.container
+		.row
+			.content-block.news-list
+				h2.content-block-title Tin tức
+				.content-block-content
+					ul
+						each val, idx in news.length ? news : ['There are no values']
+							li.news-item.col-md-4
+								.news-img
+									a(href="#")
+										img(src=val.img, alt="")
+								.news-info
+									h3
+										a(href="#")= val.title
+									p= val.short
+									a.btn-more(href="#") Chi tiết
+	.container
+		.row
+			.content-block.partners-list
+				h2.content-block-title Đối tác
+				.swiper-partner-slide-prev
+					i.fa.fa-angle-left
+				.swiper-container.partners-slide
+					.swiper-wrapper
+						each val, idx in partners.length ? partners : ['There are no values']
+							a.swiper-slide.partner-item(href="#")
+								img(src=val, alt="")
+				.swiper-partner-slide-next
+					i.fa.fa-angle-right
+								
+
+
+
+
+
+
+	
