@@ -1,0 +1,52 @@
+extends ./layouts/main.jade
+
+block title 
+	title Homepage Page
+	
+block content
+	- var breadscrumb = ['Trang chủ', 'Models'];
+	- var models = [{'name': 'Nguyễn Ngọc Kỳ Hân', 'img': 'img/models/1.jpg'},{'name': 'Trà Thanh Như Thủy', 'img': 'img/models/2.jpg'},{'name': 'Bách Kỳ Ngọc Hạnh', 'img': 'img/models/3.jpg'},{'name': 'Lê Minh Trang', 'img': 'img/models/4.jpg'},{'name': 'Nguyễn Ngọc Thanh Trà', 'img': 'img/models/5.jpg'},{'name': 'Hà Thanh Liên', 'img': 'img/models/6.jpg'},{'name': 'Nguyễn Dương Minh Châu', 'img': 'img/models/7.jpg'},{'name': 'Dương Nguyễn Thùy Dương', 'img': 'img/models/8.jpg'},{'name': 'Lê Hải Như', 'img': 'img/models/9.jpg'},{'name': 'Đào Lam Giang', 'img': 'img/models/10.jpg'}, {'name': 'Nguyễn Ngọc Kỳ Hân', 'img': 'img/models/4.jpg'},{'name': 'Trà Thanh Như Thủy', 'img': 'img/models/3.jpg'},{'name': 'Bách Kỳ Ngọc Hạnh', 'img': 'img/models/7.jpg'},{'name': 'Lê Minh Trang', 'img': 'img/models/11.jpg'},{'name': 'Nguyễn Ngọc Thanh Trà', 'img': 'img/models/5.jpg'},{'name': 'Hà Thanh Liên', 'img': 'img/models/6.jpg'},{'name': 'Nguyễn Dương Minh Châu', 'img': 'img/models/7.jpg'},{'name': 'Dương Nguyễn Thùy Dương', 'img': 'img/models/8.jpg'},{'name': 'Lê Hải Như', 'img': 'img/models/11.jpg'},{'name': 'Đào Lam Giang', 'img': 'img/models/2.jpg'}];
+	.content-page.content-page-models
+		.content-page-header
+			.container
+				.row
+					.col-md-12
+						h1.content-page-title Models
+						ol.breadcrumb
+							each val, idx in breadscrumb.length ? breadscrumb : ['There are no values']
+								li
+									a(href="#")= val
+
+		.content-page-body 
+			.container
+				.row
+					.col-md-12
+						.model-filter
+							form.form-inline
+								label Tìm kiếm: 
+									.form-group
+										label(class="radiobox")
+											input(type="radio" name="gender" class="radio radio-female" checked)
+											span.lbradio-gender
+										label(class="radiobox")
+											input(type="radio" name="gender" class="radio radio-male")
+											span.lbradio-gender
+									.form-group
+										label.combobox
+											select(class="form-control")
+												option Chọn chiều cao
+												option &lt; 1m60
+
+
+						.model-list
+							each val, idx in models.length ? models : ['There are no values']
+								.model-item
+									a(href="#")
+										img(src=val.img, alt="")
+										figcaption
+											p= val.name
+
+
+
+
+

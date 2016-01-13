@@ -37,7 +37,7 @@ html
 					div.main-nav
 						ul
 							each val, idx in menus.length ? menus : ['There are no values']
-								if (idx == 1) 
+								if (idx == 0) 
 									li.current
 										a(href=val.link)= val.name
 								else
@@ -75,6 +75,8 @@ html
 										=val
 					.col-md-3
 						.fb-page(data-href="https://www.facebook.com/queenmodel.vn/?fref=ts" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false")
+					.col-md-12.copyright
+						p &#169 2016 Copyright by QueenModel
 		script(src='js/jquery.js')
 		script(src='js/bootstrap.js')
 		script(src='js/swiper.min.js')
