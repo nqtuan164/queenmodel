@@ -24,9 +24,44 @@
 <body <?php body_class(); ?>>
 <div id="page" class="site">
 	<div class="site-inner">
-		<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'twentysixteen' ); ?></a>
-
+<!--		<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'twentysixteen' ); ?></a>-->
+        
 		<header id="masthead" class="site-header" role="banner">
+            
+            <div class="container header">
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-8">
+                        <!-- Lang bar-->
+                        <div class="language-nav">
+                            <p>Language: </p>
+                            <?php echo qtranxf_generateLanguageSelectCode('image'); ?>
+<!--                            <ul>
+                                <li><a href="#"><img src="img/en.png" alt="Tiếng Việt"></a></li>
+                                <li><a href="#"><img src="img/vi.png" alt="English"></a></li>
+                            </ul>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo"><img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="Queen Model"></a>
+                    
+                    <div class="col-md-10">
+                        <!-- Menu-->
+                        <div class="main-nav">
+                            <ul>
+                                <li class="current"><a href="#">Trang chủ</a></li>
+                                <li> <a href="models.html">Models</a></li>
+                                <li> <a href="pgpb.html">PG/PB</a></li>
+                                <li> <a href="aboutus.html">Về chúng tôi</a></li>
+                                <li> <a href="news.html">Tin tức</a></li>
+                                <li> <a href="createprofile.html">Tạo profile</a></li>
+                                <li> <a href="contact.html">Liên hệ</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
 			<div class="site-header-main">
 				<div class="site-branding">
 					<?php if ( is_front_page() && is_home() ) : ?>

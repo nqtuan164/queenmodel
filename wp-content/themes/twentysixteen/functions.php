@@ -405,3 +405,69 @@ function twentysixteen_widget_tag_cloud_args( $args ) {
 	return $args;
 }
 add_filter( 'widget_tag_cloud_args', 'twentysixteen_widget_tag_cloud_args' );
+
+function theme_name_style () {
+    wp_deregister_style('twentysixteen-style');
+    wp_enqueue_style('my-css', get_template_directory_uri() . '/css/style.css');
+}
+
+add_action('wp_enqueue_scripts', 'theme_name_style');
+
+add_action('init', 'create_post_type');
+function create_post_type() {
+    register_post_type('acme_model', 
+        array(
+            'labels' => array(
+                'name' => __( 'Models' ),
+                'singular_name' => __( 'Model' )
+            ),
+            'public' => true,
+            'has_archive' => true,
+            'rewrite' => array('slug' => 'models'),
+        )
+    );
+    register_post_type('acme_pg-pb', 
+        array(
+            'labels' => array(
+                'name' => __( 'PG/PB' ),
+                'singular_name' => __( 'PG/PB' )
+            ),
+            'public' => true,
+            'has_archive' => true,
+            'rewrite' => array('slug' => 'pg-pb'),
+        )
+    );
+    
+    
+}
+
+
+add_action('init', 'create_taxonomies', 0);
+function create_taxonomies () {
+	// create a new taxonomy
+	register_taxonomy(
+		'models',
+		array('acme_model'),
+		array(
+			'labels' => array(
+                'name' => _x( 'Model Categories', 'taxonomy general name' ),
+                'singular_name' => __( 'Models Category' ),
+                'menu_name' => __( 'Model Categories' ),
+            ),
+            'hierarchical' => true,
+		)
+	);
+    
+    register_taxonomy(
+		'pgpb',
+		array('acme_pg-pb'),
+		array(
+			'labels' => array(
+                'name' => _x( 'PG/PB Categories', 'taxonomy general name' ),
+                'singular_name' => __( 'PG/PB Category' ),
+                'menu_name' => __( 'PG/PB Categories' ),
+            ),
+            'hierarchical' => true,
+		)
+	);
+}
