@@ -23,40 +23,7 @@
     transition: @agr;
 }
 
-@-webkit-keyframes checkbox-effect {
-    0% {
-        -webkit-transform: scale(0); /* Chrome, Safari, Opera */
-        -ms-transform: scale(0); /* IE 9 */
-        transform: scale(0);
-    }
-    90% {
-        -webkit-transform: scale(1.4); /* Chrome, Safari, Opera */
-        -ms-transform: scale(1.4); /* IE 9 */
-        transform: scale(1.4);
-    }
-    100% {
-        -webkit-transform: scale(1); /* Chrome, Safari, Opera */
-        -ms-transform: scale(1); /* IE 9 */
-        transform: scale(1);
-    }
-}
-keyframes checkbox-effect {
-    0% {
-        -webkit-transform: scale(0); /* Chrome, Safari, Opera */
-        -ms-transform: scale(0); /* IE 9 */
-        transform: scale(0);
-    }
-    90% {
-        -webkit-transform: scale(1.4); /* Chrome, Safari, Opera */
-        -ms-transform: scale(1.4); /* IE 9 */
-        transform: scale(1.4);
-    }
-    100% {
-        -webkit-transform: scale(1); /* Chrome, Safari, Opera */
-        -ms-transform: scale(1); /* IE 9 */
-        transform: scale(1);
-    }
-}
+
 .ul {
     list-style: none;
     margin: 0px;
@@ -131,20 +98,24 @@ canvas {
 
 .main-nav {
     display: block;
-    float: right;
-    margin-top: 10px;
+    margin-top: 20px;
     ul {
         .ul;
     }
     li {
         display: inline-block;
         padding: 10px 25px; 
+        margin: 0px 10px;
         .transition(@trans-arguments);
         a {
             display: block;
             color: @white; 
             font-size: 15px;
             font-weight: bold;
+            
+            &:hover, &:active, &:focus {
+                text-decoration: none;
+            }
         }
 
         &:hover, &:active, &:focus {
@@ -153,9 +124,22 @@ canvas {
                 text-decoration: none;
             }
         }
-
+        
         &.current {
             background: @blue;
+        }
+        
+        &:nth-of-type(n+4) {
+            float: right;
+        }
+        
+        &#menu-item-28 {
+            border: 2px solid @blue;
+            a { color: @blue; }
+            
+            &:hover {
+                a { color: @white; }
+            }
         }
     }
 }
@@ -390,6 +374,7 @@ canvas {
         overflow: hidden;
         .news-item {
             margin-top: 25px;
+            min-height: 220px;
         }
         .news-img {
             width: 100px;
@@ -402,6 +387,7 @@ canvas {
                 position: relative;
                 img {
                     width: 100%;
+                    height: auto;
                 }
             }
         }
@@ -498,6 +484,7 @@ canvas {
     .content-page-header {
         background: url('../img/breadscrumb1.jpg') right no-repeat;
         height: 150px;
+        margin-top: 30px;
         .content-page-title {
             margin-top: 40px;
         }
@@ -568,7 +555,7 @@ canvas {
         }
         .combobox {
             border: 2px solid @blue;
-
+            position: relative;
             & > .form-control { 
                 -webkit-appearance: none;
                 -moz-appearance: none;
@@ -590,6 +577,12 @@ canvas {
                 content: @fa-var-angle-down;
                 margin-right: 15px;
                 color: @blue;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                -webkit-transform: translateY(-50%);
+                -moz-transform: translateY(-50%);
+                right: 0px;
             }
         }
     }
@@ -733,5 +726,41 @@ canvas {
     .copyright {
         padding-top: 50px;
         padding-bottom: 20px;
+    }
+}
+
+
+@-webkit-keyframes checkbox-effect {
+    0% {
+        -webkit-transform: scale(0); /* Chrome, Safari, Opera */
+        -ms-transform: scale(0); /* IE 9 */
+        transform: scale(0);
+    }
+    90% {
+        -webkit-transform: scale(1.4); /* Chrome, Safari, Opera */
+        -ms-transform: scale(1.4); /* IE 9 */
+        transform: scale(1.4);
+    }
+    100% {
+        -webkit-transform: scale(1); /* Chrome, Safari, Opera */
+        -ms-transform: scale(1); /* IE 9 */
+        transform: scale(1);
+    }
+}
+keyframes checkbox-effect {
+    0% {
+        -webkit-transform: scale(0); /* Chrome, Safari, Opera */
+        -ms-transform: scale(0); /* IE 9 */
+        transform: scale(0);
+    }
+    90% {
+        -webkit-transform: scale(1.4); /* Chrome, Safari, Opera */
+        -ms-transform: scale(1.4); /* IE 9 */
+        transform: scale(1.4);
+    }
+    100% {
+        -webkit-transform: scale(1); /* Chrome, Safari, Opera */
+        -ms-transform: scale(1); /* IE 9 */
+        transform: scale(1);
     }
 }

@@ -1,4 +1,6 @@
-$(document).ready(function () {
+jQuery.noConflict();
+(function( $ ) {
+  $(document).ready(function () {
     var swiper = new Swiper('.models-slide', {
         nextButton: '.swiper-models-slide-next',
         prevButton: '.swiper-models-slide-prev',
@@ -18,3 +20,4 @@ $(document).ready(function () {
 
     });
 });
+})(jQuery);

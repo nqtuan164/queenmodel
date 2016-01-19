@@ -409,8 +409,11 @@ add_filter( 'widget_tag_cloud_args', 'twentysixteen_widget_tag_cloud_args' );
 function theme_name_style () {
     wp_deregister_style('twentysixteen-style');
     wp_enqueue_style('my-css', get_template_directory_uri() . '/css/style.css');
+    wp_enqueue_style('my-swiper', get_template_directory_uri() . '/css/swiper.min.css');
+    wp_enqueue_script('my-script', get_template_directory_uri() . '/js/script.js');
+    wp_enqueue_script('my-swiper', get_template_directory_uri() . '/js/swiper.min.js');
+    wp_enqueue_script('my-swiper', get_template_directory_uri() . '/js/bootstrap.js');
 }
-
 add_action('wp_enqueue_scripts', 'theme_name_style');
 
 add_action('init', 'create_post_type');
@@ -471,3 +474,6 @@ function create_taxonomies () {
 		)
 	);
 }
+
+add_theme_support( 'news-thumbnails' );
+set_post_thumbnail_size( 100, 100 );

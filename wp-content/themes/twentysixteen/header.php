@@ -45,10 +45,16 @@
                 <div class="row">
                     <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo"><img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="Queen Model"></a>
                     
-                    <div class="col-md-10">
+                    <div class="col-md-12">
                         <!-- Menu-->
                         <div class="main-nav">
-                            <ul>
+                            <?php
+                                wp_nav_menu( array(
+                                    'theme_location' => 'primary',
+                                    'menu_class'     => 'primary-menu',
+                                 ) );
+                            ?>
+<!--                            <ul>
                                 <li class="current"><a href="#">Trang chủ</a></li>
                                 <li> <a href="models.html">Models</a></li>
                                 <li> <a href="pgpb.html">PG/PB</a></li>
@@ -56,13 +62,13 @@
                                 <li> <a href="news.html">Tin tức</a></li>
                                 <li> <a href="createprofile.html">Tạo profile</a></li>
                                 <li> <a href="contact.html">Liên hệ</a></li>
-                            </ul>
+                            </ul>-->
                         </div>
                     </div>
                 </div>
             </div>
             
-			<div class="site-header-main">
+<!--			<div class="site-header-main">
 				<div class="site-branding">
 					<?php if ( is_front_page() && is_home() ) : ?>
 						<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
@@ -74,7 +80,7 @@
 					if ( $description || is_customize_preview() ) : ?>
 						<p class="site-description"><?php echo $description; ?></p>
 					<?php endif; ?>
-				</div><!-- .site-branding -->
+				</div> .site-branding 
 
 				<?php if ( has_nav_menu( 'primary' ) || has_nav_menu( 'social' ) ) : ?>
 					<button id="menu-toggle" class="menu-toggle"><?php _e( 'Menu', 'twentysixteen' ); ?></button>
@@ -88,25 +94,11 @@
 										'menu_class'     => 'primary-menu',
 									 ) );
 								?>
-							</nav><!-- .main-navigation -->
+							</nav> .main-navigation 
 						<?php endif; ?>
-
-						<?php if ( has_nav_menu( 'social' ) ) : ?>
-							<nav id="social-navigation" class="social-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Social Links Menu', 'twentysixteen' ); ?>">
-								<?php
-									wp_nav_menu( array(
-										'theme_location' => 'social',
-										'menu_class'     => 'social-links-menu',
-										'depth'          => 1,
-										'link_before'    => '<span class="screen-reader-text">',
-										'link_after'     => '</span>',
-									) );
-								?>
-							</nav><!-- .social-navigation -->
-						<?php endif; ?>
-					</div><!-- .site-header-menu -->
+					</div> .site-header-menu 
 				<?php endif; ?>
-			</div><!-- .site-header-main -->
+			</div> .site-header-main 
 
 			<?php if ( get_header_image() ) : ?>
 				<?php
@@ -125,8 +117,8 @@
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
 						<img src="<?php header_image(); ?>" srcset="<?php echo esc_attr( wp_get_attachment_image_srcset( get_custom_header()->attachment_id ) ); ?>" sizes="<?php echo esc_attr( $custom_header_sizes ); ?>" width="<?php echo esc_attr( get_custom_header()->width ); ?>" height="<?php echo esc_attr( get_custom_header()->height ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
 					</a>
-				</div><!-- .header-image -->
+				</div> .header-image 
 			<?php endif; // End header image check. ?>
-		</header><!-- .site-header -->
+		</header> .site-header -->
 
 		<div id="content" class="site-content">

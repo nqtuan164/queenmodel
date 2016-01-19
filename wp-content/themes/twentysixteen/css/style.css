@@ -8805,50 +8805,6 @@ button.close {
 .fa-fonticons:before {
   content: "\f280";
 }
-@-webkit-keyframes checkbox-effect {
-  0% {
-    -webkit-transform: scale(0);
-    /* Chrome, Safari, Opera */
-    -ms-transform: scale(0);
-    /* IE 9 */
-    transform: scale(0);
-  }
-  90% {
-    -webkit-transform: scale(1.4);
-    /* Chrome, Safari, Opera */
-    -ms-transform: scale(1.4);
-    /* IE 9 */
-    transform: scale(1.4);
-  }
-  100% {
-    -webkit-transform: scale(1);
-    /* Chrome, Safari, Opera */
-    -ms-transform: scale(1);
-    /* IE 9 */
-    transform: scale(1);
-  }
-}
-keyframes checkbox-effect 0% {
-  -webkit-transform: scale(0);
-  /* Chrome, Safari, Opera */
-  -ms-transform: scale(0);
-  /* IE 9 */
-  transform: scale(0);
-}
-keyframes checkbox-effect 90% {
-  -webkit-transform: scale(1.4);
-  /* Chrome, Safari, Opera */
-  -ms-transform: scale(1.4);
-  /* IE 9 */
-  transform: scale(1.4);
-}
-keyframes checkbox-effect 100% {
-  -webkit-transform: scale(1);
-  /* Chrome, Safari, Opera */
-  -ms-transform: scale(1);
-  /* IE 9 */
-  transform: scale(1);
-}
 .ul {
   list-style: none;
   margin: 0px;
@@ -8910,8 +8866,7 @@ canvas {
 }
 .main-nav {
   display: block;
-  float: right;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 .main-nav ul {
   list-style: none;
@@ -8921,6 +8876,7 @@ canvas {
 .main-nav li {
   display: inline-block;
   padding: 10px 25px;
+  margin: 0px 10px;
   -webkit-transition: all 0.2s ease;
   -moz-transition: all 0.2s ease;
   -ms-transition: all 0.2s ease;
@@ -8932,6 +8888,11 @@ canvas {
   color: #fff;
   font-size: 15px;
   font-weight: bold;
+}
+.main-nav li a:hover,
+.main-nav li a:active,
+.main-nav li a:focus {
+  text-decoration: none;
 }
 .main-nav li:hover,
 .main-nav li:active,
@@ -8945,6 +8906,18 @@ canvas {
 }
 .main-nav li.current {
   background: #00baab;
+}
+.main-nav li:nth-of-type(n+4) {
+  float: right;
+}
+.main-nav li#menu-item-28 {
+  border: 2px solid #00baab;
+}
+.main-nav li#menu-item-28 a {
+  color: #00baab;
+}
+.main-nav li#menu-item-28:hover a {
+  color: #fff;
 }
 .language-nav {
   display: block;
@@ -9197,6 +9170,7 @@ canvas {
 }
 .news-list ul .news-item {
   margin-top: 25px;
+  min-height: 220px;
 }
 .news-list ul .news-img {
   width: 100px;
@@ -9211,6 +9185,7 @@ canvas {
 }
 .news-list ul .news-img a img {
   width: 100%;
+  height: auto;
 }
 .news-list ul .news-info {
   margin-left: 115px;
@@ -9316,6 +9291,7 @@ canvas {
 .content-page .content-page-header {
   background: url('../img/breadscrumb1.jpg') right no-repeat;
   height: 150px;
+  margin-top: 30px;
 }
 .content-page .content-page-header .content-page-title {
   margin-top: 40px;
@@ -9384,6 +9360,7 @@ canvas {
 }
 .content-page-models .model-filter .combobox {
   border: 2px solid #00baab;
+  position: relative;
 }
 .content-page-models .model-filter .combobox > .form-control {
   -webkit-appearance: none;
@@ -9406,6 +9383,12 @@ canvas {
   content: "\f107";
   margin-right: 15px;
   color: #00baab;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  right: 0px;
 }
 .content-page-models .model-list .model-item {
   width: calc(20% - 16px);
@@ -9554,4 +9537,48 @@ canvas {
 .footer .copyright {
   padding-top: 50px;
   padding-bottom: 20px;
+}
+@-webkit-keyframes checkbox-effect {
+  0% {
+    -webkit-transform: scale(0);
+    /* Chrome, Safari, Opera */
+    -ms-transform: scale(0);
+    /* IE 9 */
+    transform: scale(0);
+  }
+  90% {
+    -webkit-transform: scale(1.4);
+    /* Chrome, Safari, Opera */
+    -ms-transform: scale(1.4);
+    /* IE 9 */
+    transform: scale(1.4);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    /* Chrome, Safari, Opera */
+    -ms-transform: scale(1);
+    /* IE 9 */
+    transform: scale(1);
+  }
+}
+keyframes checkbox-effect 0% {
+  -webkit-transform: scale(0);
+  /* Chrome, Safari, Opera */
+  -ms-transform: scale(0);
+  /* IE 9 */
+  transform: scale(0);
+}
+keyframes checkbox-effect 90% {
+  -webkit-transform: scale(1.4);
+  /* Chrome, Safari, Opera */
+  -ms-transform: scale(1.4);
+  /* IE 9 */
+  transform: scale(1.4);
+}
+keyframes checkbox-effect 100% {
+  -webkit-transform: scale(1);
+  /* Chrome, Safari, Opera */
+  -ms-transform: scale(1);
+  /* IE 9 */
+  transform: scale(1);
 }
