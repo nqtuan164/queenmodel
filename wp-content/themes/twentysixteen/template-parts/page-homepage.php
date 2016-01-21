@@ -24,7 +24,7 @@ get_header();
                             'offset'           => 0,
                             'orderby'          => 'date',
                             'order'            => 'DESC',
-                            'post_type'        => array('acme_model', 'acme_pg-pb'),
+                            'post_type'        => array('models', 'pgpb'),
                             'post_status'      => 'publish');
 
                         $myposts = get_posts( $args );
@@ -54,86 +54,7 @@ get_header();
                             endforeach;
                             wp_reset_postdata();
                         ?>
-<!--                        <div class="swiper-slide model-item"><a href="#"><img src="img/models/1.jpg" alt="">
-                                <figcaption>
-                                    <p>Nguyễn Ngọc Kỳ Hân</p>
-                                </figcaption></a></div>
-                        <div class="swiper-slide model-item"><a href="#"><img src="img/models/2.jpg" alt="">
-                                <figcaption>
-                                    <p>Trà Thanh Như Thủy</p>
-                                </figcaption></a></div>
-                        <div class="swiper-slide model-item"><a href="#"><img src="img/models/3.jpg" alt="">
-                                <figcaption>
-                                    <p>Bách Kỳ Ngọc Hạnh</p>
-                                </figcaption></a></div>
-                        <div class="swiper-slide model-item"><a href="#"><img src="img/models/4.jpg" alt="">
-                                <figcaption>
-                                    <p>Lê Minh Trang</p>
-                                </figcaption></a></div>
-                        <div class="swiper-slide model-item"><a href="#"><img src="img/models/5.jpg" alt="">
-                                <figcaption>
-                                    <p>Nguyễn Ngọc Thanh Trà</p>
-                                </figcaption></a></div>
-                        <div class="swiper-slide model-item"><a href="#"><img src="img/models/6.jpg" alt="">
-                                <figcaption>
-                                    <p>Hà Thanh Liên</p>
-                                </figcaption></a></div>
-                        <div class="swiper-slide model-item"><a href="#"><img src="img/models/7.jpg" alt="">
-                                <figcaption>
-                                    <p>Nguyễn Dương Minh Châu</p>
-                                </figcaption></a></div>
-                        <div class="swiper-slide model-item"><a href="#"><img src="img/models/8.jpg" alt="">
-                                <figcaption>
-                                    <p>Dương Nguyễn Thùy Dương</p>
-                                </figcaption></a></div>
-                        <div class="swiper-slide model-item"><a href="#"><img src="img/models/9.jpg" alt="">
-                                <figcaption>
-                                    <p>Lê Hải Như</p>
-                                </figcaption></a></div>
-                        <div class="swiper-slide model-item"><a href="#"><img src="img/models/10.jpg" alt="">
-                                <figcaption>
-                                    <p>Đào Lam Giang</p>
-                                </figcaption></a></div>
-                        <div class="swiper-slide model-item"><a href="#"><img src="img/models/4.jpg" alt="">
-                                <figcaption>
-                                    <p>Nguyễn Ngọc Kỳ Hân</p>
-                                </figcaption></a></div>
-                        <div class="swiper-slide model-item"><a href="#"><img src="img/models/3.jpg" alt="">
-                                <figcaption>
-                                    <p>Trà Thanh Như Thủy</p>
-                                </figcaption></a></div>
-                        <div class="swiper-slide model-item"><a href="#"><img src="img/models/7.jpg" alt="">
-                                <figcaption>
-                                    <p>Bách Kỳ Ngọc Hạnh</p>
-                                </figcaption></a></div>
-                        <div class="swiper-slide model-item"><a href="#"><img src="img/models/11.jpg" alt="">
-                                <figcaption>
-                                    <p>Lê Minh Trang</p>
-                                </figcaption></a></div>
-                        <div class="swiper-slide model-item"><a href="#"><img src="img/models/5.jpg" alt="">
-                                <figcaption>
-                                    <p>Nguyễn Ngọc Thanh Trà</p>
-                                </figcaption></a></div>
-                        <div class="swiper-slide model-item"><a href="#"><img src="img/models/6.jpg" alt="">
-                                <figcaption>
-                                    <p>Hà Thanh Liên</p>
-                                </figcaption></a></div>
-                        <div class="swiper-slide model-item"><a href="#"><img src="img/models/7.jpg" alt="">
-                                <figcaption>
-                                    <p>Nguyễn Dương Minh Châu</p>
-                                </figcaption></a></div>
-                        <div class="swiper-slide model-item"><a href="#"><img src="img/models/8.jpg" alt="">
-                                <figcaption>
-                                    <p>Dương Nguyễn Thùy Dương</p>
-                                </figcaption></a></div>
-                        <div class="swiper-slide model-item"><a href="#"><img src="img/models/11.jpg" alt="">
-                                <figcaption>
-                                    <p>Lê Hải Như</p>
-                                </figcaption></a></div>
-                        <div class="swiper-slide model-item"><a href="#"><img src="img/models/2.jpg" alt="">
-                                <figcaption>
-                                    <p>Đào Lam Giang</p>
-                                </figcaption></a></div>-->
+
                     </div>
                 </div>
                 <div class="swiper-models-slide-next"><i class="fa fa-angle-right"></i></div><a href="#" class="search-link"> <i class="fa fa-search"></i>Tìm kiếm</a>

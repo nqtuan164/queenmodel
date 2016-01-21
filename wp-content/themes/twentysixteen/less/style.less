@@ -495,6 +495,7 @@ canvas {
 }
 
 .content-page {
+    padding-bottom: 50px;
     .content-page-header {
         background: url('../img/breadscrumb1.jpg') right no-repeat;
         height: 150px;
@@ -602,6 +603,11 @@ canvas {
     }
 
     .model-list {
+        height: auto;
+        display: block;
+        position: relative;
+        overflow: hidden;
+
         .model-item {
             width: calc(~'20% - 16px'); 
             margin-right: 20px;
@@ -696,6 +702,79 @@ canvas {
                         transform: translateY(-50%) translateX(-50%) scale(1);
                     }
                 }
+            }
+        }
+    }
+    
+    .custom-pagination {
+        .page-numbers {
+            width: 20px;
+            height: 20px;
+            border: 2px solid @blue;
+            text-align: center; 
+            padding: 3px 8px;
+            color: @blue;
+            font-weight: bold;
+            .transition(@trans-arguments);
+        }
+        a.page-numbers:hover {
+            color: @white;
+            background: @blue;
+            text-decoration: none;
+        }
+        .current {
+            background: @blue;
+            color: @white;
+        }
+    }
+}
+
+.content-page-news {
+    .news-item {
+        margin-top: 25px;
+        min-height: 220px;
+    }
+    .news-img {
+        width: 100px;
+        float: left;
+        a {
+            display: block;
+            overflow: hidden;
+            width: 100px;
+            height: 100px;
+            position: relative;
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+
+    .news-info {
+        margin-left: 115px;
+        position: relative;
+        padding-bottom: 20px;
+        h2 {
+            margin: 0px;
+            margin-bottom: 5px;
+            font-size: 17px;
+            font-weight: bold;
+            a {
+                .a;
+                color: @blue;
+            }	
+        }
+        .btn-more {
+            .a;
+            border: 2px solid @blue;
+            padding: 3px 10px;
+            font-size: 12px;
+            font-weight: bold;
+            color: @blue;
+            .transition(@trans-arguments);
+            &:hover{
+                background: @blue;
+                color: @white;
             }
         }
     }

@@ -1,0 +1,1 @@
+call lessc -x wp-content\themes\twentysixteen\less\style.less wp-content\themes\twentysixteen\css\style.css

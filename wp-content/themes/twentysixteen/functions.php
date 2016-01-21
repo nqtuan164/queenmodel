@@ -539,7 +539,7 @@ function custom_pagination($numpages = '', $pagerange = '', $paged = '') {
 
     if ($paginate_links) {
         echo "<nav class='custom-pagination'>";
-        echo "<span class='page-numbers page-num'>Page " . $paged . " of " . $numpages . "</span> ";
+        echo "<span class='page-numbers page-num'>" . __("[:en]Page&nbsp;[:vi]Trang&nbsp;") . $paged .  __("[:en]&nbsp;of&nbsp;[:vi]&nbsp;trên&nbsp;") . $numpages . "</span> ";
         echo $paginate_links;
         echo "</nav>";
     }

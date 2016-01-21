@@ -62,29 +62,14 @@ get_header(); ?>
                     <div class="model-list">
                         <?php 
                         $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-                        echo $paged;
+                        
                         $args = array( 
-                            'posts_per_page'   => 1,
-                            'offset'           => 0,
+                            'posts_per_page'   => 2,
                             'paged'             => $paged,
                             'orderby'          => 'date',
                             'order'            => 'DESC',
-                            'post_type'        => array('acme_pg-pb'),
+                            'post_type'        => array('models'),
                             'post_status'      => 'publish',
-                            'meta_query'       => array(
-                                                    'relation' => 'AND',
-                                                    array(
-                                                        'key'		=> 'model_gender',
-                                                        'value'		=> 'female',
-                                                        'compare'	=> '='
-                                                    ), 
-                                                    array(
-                                                        'key'       => 'model_birthday',
-                                                        'value'     => array('19890101', '19941231'),
-                                                        'compare'   => 'BETWEEN',
-                                                        'type'      => 'DATE'
-                                                    )
-                                                )
                             );
                         
                         
@@ -109,18 +94,12 @@ get_header(); ?>
                             </div>
                         <?php endwhile; ?>
                     </div>
-                    <div class="alignleft"><?php next_posts_link('Previous Entries'); ?></div>
-                    <div class="alignright"><?php previous_posts_link('Next Entries'); ?></div>
                     <?php
-//                    the_posts_pagination( array(
-//                        'prev_text'          => __( 'Previous page', 'twentysixteen' ),
-//                        'next_text'          => __( 'Next page', 'twentysixteen' ),
-//                        'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'twentysixteen' ) . ' </span>',
-//                    ) );
-//                    if (function_exists(custom_pagination)) {
-//                        echo "kaka";
-//                        custom_pagination($the_query->max_num_pages,"",$paged);
-//                    }
+
+                    if (function_exists(custom_pagination)) {
+                        //echo "kaka";
+                        custom_pagination($the_query->max_num_pages,2,$paged);
+                    }
                     ?>
 
                 </div>
