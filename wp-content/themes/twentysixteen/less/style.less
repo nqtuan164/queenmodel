@@ -197,6 +197,21 @@ canvas {
         z-index: 100;
     }
 }
+/*BREADSCRUMB*/
+.breadcrumbs {
+    a {
+        color: @white;
+        &:hover {
+            color: @blue;
+            text-decoration: none;
+        }
+    }
+    
+    .fa {
+        margin: 0px 5px; 
+    }
+}
+
 /* HOME CONTENT BLOCK */
 .content-block {
     margin: 30px 0px;
@@ -270,7 +285,7 @@ canvas {
                 max-height: 100%;
                 max-width: 100%;
             }
-            figcaption {
+            figcaption {  
                 opacity: 0;
                 display: block;
                 width: 100%;
@@ -279,7 +294,6 @@ canvas {
                 background: fade(@blue, 80%);
                 .transition(@trans-arguments-slow);
                 p {
-                    width: 60%;
                     top: 50%;
                     left: 50%;
                     -webkit-transform: translateY(-50%) translateX(-50%);
@@ -623,7 +637,6 @@ canvas {
                     background: fade(@blue, 80%);
                     .transition(@trans-arguments-slow);
                     p {
-                        width: 60%;
                         top: 50%;
                         left: 50%;
                         -webkit-transform: translateY(-50%) translateX(-50%);
@@ -694,9 +707,14 @@ canvas {
     padding-top: 50px;
 
     .logo {
-        width: 80%;
+        width: 50%;
         display: block;
         margin-bottom: 10px;
+        position: relative;
+        height: 90px;
+        margin: 0px;
+        left: 0px;
+        transform: translateX(0%);
         img {
             width: 100%;
         }

@@ -15,7 +15,7 @@
 <div class="footer"> 
     <div class="container">
         <div class="row">
-            <div class="col-md-3"><a href="#" class="logo"><img src="img/logo.png" alt="Queen Model"></a>
+            <div class="col-md-3"><a href="#" class="logo"><img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="Queen Model"></a>
                 <p>Công ty TNHH Queen Model <br />Địa chỉ: 123 Nguyễn ABC, P10, Q.8<br />Hotline: 0123 8877777<br /></p>
             </div>
             <div class="col-md-3">

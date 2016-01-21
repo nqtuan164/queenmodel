@@ -18,7 +18,43 @@ get_header();
                 <div class="swiper-models-slide-prev"><i class="fa fa-angle-left"></i></div>
                 <div class="swiper-container models-slide">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide model-item"><a href="#"><img src="img/models/1.jpg" alt="">
+                        <?php 
+                        $args = array( 
+                            'posts_per_page'   => 20,
+                            'offset'           => 0,
+                            'orderby'          => 'date',
+                            'order'            => 'DESC',
+                            'post_type'        => array('acme_model', 'acme_pg-pb'),
+                            'post_status'      => 'publish');
+
+                        $myposts = get_posts( $args );
+                        //var_dump($myposts);
+                        foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
+
+                        <div class="swiper-slide model-item">
+                            <a href="<?php the_permalink(); ?>">
+                                
+                                <?php 
+                                    $images = get_field('model_image');
+                                    //var_dump($images);
+                                    if ($images) :
+                                        //var_dump($images[0]);
+                                ?>
+                                    <img src="<?php echo $images[0]['sizes']['medium']; ?>" alt="">
+                                <?php else: ?>
+                                    <img src="http://placehold.it/350x150" alt="">
+                                <?php endif; ?>
+                                
+                                <figcaption>
+                                    <p><?php the_title(); ?></p>
+                                </figcaption>
+                            </a>
+                        </div>
+                        <?php 
+                            endforeach;
+                            wp_reset_postdata();
+                        ?>
+<!--                        <div class="swiper-slide model-item"><a href="#"><img src="img/models/1.jpg" alt="">
                                 <figcaption>
                                     <p>Nguyễn Ngọc Kỳ Hân</p>
                                 </figcaption></a></div>
@@ -97,7 +133,7 @@ get_header();
                         <div class="swiper-slide model-item"><a href="#"><img src="img/models/2.jpg" alt="">
                                 <figcaption>
                                     <p>Đào Lam Giang</p>
-                                </figcaption></a></div>
+                                </figcaption></a></div>-->
                     </div>
                 </div>
                 <div class="swiper-models-slide-next"><i class="fa fa-angle-right"></i></div><a href="#" class="search-link"> <i class="fa fa-search"></i>Tìm kiếm</a>

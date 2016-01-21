@@ -8974,6 +8974,17 @@ canvas {
   height: 70px;
   z-index: 100;
 }
+/*BREADSCRUMB*/
+.breadcrumbs a {
+  color: #fff;
+}
+.breadcrumbs a:hover {
+  color: #00baab;
+  text-decoration: none;
+}
+.breadcrumbs .fa {
+  margin: 0px 5px;
+}
 /* HOME CONTENT BLOCK */
 .content-block {
   margin: 30px 0px;
@@ -9065,7 +9076,6 @@ canvas {
   transition: all 0.5s ease;
 }
 .models-slide .model-item a figcaption p {
-  width: 60%;
   top: 50%;
   left: 50%;
   -webkit-transform: translateY(-50%) translateX(-50%);
@@ -9431,7 +9441,6 @@ canvas {
   transition: all 0.5s ease;
 }
 .content-page-models .model-list .model-item a figcaption p {
-  width: 60%;
   top: 50%;
   left: 50%;
   -webkit-transform: translateY(-50%) translateX(-50%);
@@ -9502,9 +9511,14 @@ canvas {
   padding-top: 50px;
 }
 .footer .logo {
-  width: 80%;
+  width: 50%;
   display: block;
   margin-bottom: 10px;
+  position: relative;
+  height: 90px;
+  margin: 0px;
+  left: 0px;
+  transform: translateX(0%);
 }
 .footer .logo img {
   width: 100%;
