@@ -519,11 +519,19 @@ function custom_pagination($numpages = '', $pagerange = '', $paged = '') {
      * We construct the pagination arguments to enter into our paginate_links
      * function. 
      */
+//    $page_link = get_pagenum_link(1);
+//    $base_link = get_pagenum_link(1) . '%_%';
+//    if(strpos($page_link, '?')) {
+//        $base_link = get_pagenum_link(1) . '&%_%';
+//    } else {
+//        $base_link = get_pagenum_link(1) . '?%_%';
+//    }
+    
     $pagination_args = array(
-        'base' => get_pagenum_link(1) . '%_%',
+        'base' => preg_replace('/\?.*/', '/', get_pagenum_link(1)) . '%_%',
         'format' => 'page/%#%',
         'total' => $numpages,
-        'current' => $paged,
+        'current' => max(1, get_query_var('paged')),
         'show_all' => False,
         'end_size' => 1,
         'mid_size' => $pagerange,
@@ -548,3 +556,126 @@ function my_flush_rewrite_rules() {
     flush_rewrite_rules();
 }
 add_action( 'after_switch_theme', 'my_flush_rewrite_rules' );
+
+
+//SEARCH CONDITION
+$search_condition = array(
+    'height' => array(
+		0 => '[:en]Choose height [:vi]Chọn chiều cao',
+		1 => '[:en]Under 1.60m [:vi]Dưới 1.60m',
+		2 => '[:en]1.60m - 1.70m [:vi]1.60m - 1.70m',
+		3 => '[:en]1.70m [:vi]1.80m',
+		4 => '[:en]Over 1.80m [:vi]Trên 1.80m',
+    ), 
+    'age' => array(
+		0 => '[:en]Choose age [:vi]Chọn tuổi',
+		1 => '[:en]Under 20 years old [:vi]Dưới 20 tuổi',
+		2 => '[:en]20 - 25 years old [:vi]20 - 25 tuổi',
+		3 => '[:en]25 - 30 years old [:vi]25 - 30 tuổi',
+		4 => '[:en]Over 30 years old [:vi]Trên 30 tuổi',
+    )
+);
+
+
+function build_query_search($gender = null, $height = null, $age = null) {
+    $meta_query = array('relation' => 'AND');
+    echo $gender;
+    echo $height;
+    echo $age;
+    if ($gender != null) {
+        switch ($gender) {
+            case 'female' :
+                array_push($meta_query, array(
+                    'key'		=> 'model_gender',
+                    'value'		=> 'female',
+                    'compare'	=> '='
+                ));
+                break;
+            case 'male' :
+                array_push($meta_query, array(
+                    'key'		=> 'model_gender',
+                    'value'		=> 'male',
+                    'compare'	=> '='
+                ));
+                break;
+        }
+    }
+    
+    if ($height != null) {
+        switch ($height) {
+            case 1: 
+                array_push($meta_query, array(
+                    'key'		=> 'model_height',
+                    'value'		=> 160,
+                    'compare'	=> '<='
+                ));
+                break;
+            case 2:
+                array_push($meta_query, array(
+                    'key'		=> 'model_height',
+                    'value'		=> array(160, 170),
+                    'compare'	=> 'BETWEEN'
+                ));
+                break;
+            case 3:
+                array_push($meta_query, array(
+                    'key'		=> 'model_height',
+                    'value'		=> array(170, 180),
+                    'compare'	=> 'BETWEEN'
+                ));
+                break;
+            case 4:
+                array_push($meta_query, array(
+                    'key'		=> 'model_height',
+                    'value'		=> 180,
+                    'compare'	=> '>='
+                ));
+                break;
+        }
+    }
+    
+    if ($age != null) {
+        switch ($age) {
+            case 1: 
+                $max = strval((intval(date('Y')) - 20)) . '1231';
+                array_push($meta_query, array(
+                    'key'		=> 'model_birthday',
+                    'value'		=> $max,
+                    'compare'	=> '<=', 
+                    'type'      => 'DATE'
+                ));
+                break;
+            case 2:
+                $min = strval((intval(date('Y')) - 25)) . '0101';
+                $max = strval((intval(date('Y')) - 20)) . '1231';
+                array_push($meta_query, array(
+                    'key'		=> 'model_birthday',
+                    'value'		=> array($min, $max),
+                    'compare'	=> 'BETWEEN', 
+                    'type'      => 'DATE'
+                ));
+                break;
+            case 3:
+                $min = strval((intval(date('Y')) - 30)) . '0101';
+                $max = strval((intval(date('Y')) - 25)) . '1231';
+                array_push($meta_query, array(
+                    'key'		=> 'model_birthday',
+                    'value'		=> array($min, $max),
+                    'compare'	=> 'BETWEEN', 
+                    'type'      => 'DATE'
+                ));
+                break;
+            case 4:
+                $min = strval((intval(date('Y')) - 30)) . '0101';
+                array_push($meta_query, array(
+                    'key'		=> 'model_birthday',
+                    'value'		=> $min,
+                    'compare'	=> '>=', 
+                    'type'      => 'DATE'
+                ));
+                break;
+        }
+    }
+    
+    return $meta_query;
+}

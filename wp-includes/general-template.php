@@ -2924,7 +2924,7 @@ function language_attributes( $doctype = 'html' ) {
  */
 function paginate_links( $args = '' ) {
 	global $wp_query, $wp_rewrite;
-
+    // echo $args['base'];
 	// Setting up default values based on the current URL.
 	$pagenum_link = html_entity_decode( get_pagenum_link() );
 	$url_parts    = explode( '?', $pagenum_link );

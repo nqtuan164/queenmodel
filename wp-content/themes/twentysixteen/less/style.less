@@ -523,6 +523,9 @@ canvas {
         margin: 20px 0px 45px 0px;
         padding: 20px 0px;
         border-bottom: 1px solid @white;
+        .form-inline {
+            position: relative;
+        }
         .radiobox {
             cursor: pointer;
             text-align: center;
@@ -599,6 +602,16 @@ canvas {
                 -moz-transform: translateY(-50%);
                 right: 0px;
             }
+        }
+        
+        .btn-submit {
+            color: @white;
+            background: @blue;
+            border: 2px solid @blue;
+            padding: 7px 20px;
+            display: inline-block;
+            top: 0px;
+            position: absolute;
         }
     }
 
