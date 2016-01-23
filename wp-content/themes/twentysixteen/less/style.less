@@ -495,7 +495,6 @@ canvas {
 }
 
 .content-page {
-    padding-bottom: 50px;
     .content-page-header {
         background: url('../img/breadscrumb1.jpg') right no-repeat;
         height: 150px;
@@ -515,6 +514,9 @@ canvas {
             font-family: @font-awesome;
             content: @fa-var-angle-right;
         }
+    }
+    .content-page-body {
+        padding: 30px 0px 50px 0px;
     }
 }
 
@@ -719,29 +721,104 @@ canvas {
         }
     }
     
-    .custom-pagination {
-        .page-numbers {
-            width: 20px;
-            height: 20px;
-            border: 2px solid @blue;
-            text-align: center; 
-            padding: 3px 8px;
-            color: @blue;
-            font-weight: bold;
-            .transition(@trans-arguments);
-        }
-        a.page-numbers:hover {
-            color: @white;
-            background: @blue;
-            text-decoration: none;
-        }
-        .current {
-            background: @blue;
-            color: @white;
+    
+    .main-profile-img {
+        img {
+            width: 100%;
+            height: auto;
         }
     }
-}
+    .main-profile-content {
+        .table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
+            padding: 8px;
+            line-height: 1.42857143;
+            vertical-align: top;
+            border-top: 1px solid #191919;
+        }
+        .table-striped>tbody>tr:nth-of-type(odd) {
+            background-color: #191919;
+        }
+        th {
+            width: 22%;
+        }
+    }
+    
+    .main-profile-img-list {
+        margin-top: 10px;
+        .swiper-slide {
+            a {
+                display: block;
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        }
+    }
+    .swiper-detail-slide-prev {
+        position: absolute;
+        left: -15px;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        transform: translateY(-50%);
+        font-size: 30px;
+        color: @blue;
+        cursor: pointer;
+        .transition(@trans-arguments-slow);
+        &:hover {
+            -webkit-transform: scale(1.3) translateY(-38%);
+            -moz-transform: scale(1.3) translateY(-38%);
+            transform: scale(1.3) translateY(-38%);
+        }
+        &.swiper-button-disabled {
+            opacity: 0.3;
+        }
+    }
 
+    .swiper-detail-slide-next{
+        position: absolute;
+        right: -15px;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        transform: translateY(-50%);
+        font-size: 30px;
+        color: @blue;
+        cursor: pointer;
+        .transition(@trans-arguments-slow);
+        &:hover {
+            -webkit-transform: scale(1.3) translateY(-38%);
+            -moz-transform: scale(1.3) translateY(-38%);
+            transform: scale(1.3) translateY(-38%);
+        }
+        &.swiper-button-disabled {
+            opacity: 0.3;
+        }
+    }
+    
+}
+.custom-pagination {
+    .page-numbers {
+        width: 20px;
+        height: 20px;
+        border: 2px solid @blue;
+        text-align: center; 
+        padding: 3px 8px;
+        color: @blue;
+        font-weight: bold;
+        .transition(@trans-arguments);
+    }
+    a.page-numbers:hover {
+        color: @white;
+        background: @blue;
+        text-decoration: none;
+    }
+    .current {
+        background: @blue;
+        color: @white;
+    }
+}
 .content-page-news {
     .news-item {
         margin-top: 25px;
@@ -838,7 +915,19 @@ canvas {
         padding-bottom: 20px;
     }
 }
+.sidebar {
+    .widget {
+        margin-bottom: 30px;
+    }
+    .widget-title {
+        margin-top: 0;
+        font-size: 20px;
+        color: #00baab;
+        margin-bottom: 17px;
+        font-weight: bold;
+    }
 
+}
 
 @-webkit-keyframes checkbox-effect {
     0% {
@@ -857,7 +946,7 @@ canvas {
         transform: scale(1);
     }
 }
-keyframes checkbox-effect {
+@keyframes checkbox-effect {
     0% {
         -webkit-transform: scale(0); /* Chrome, Safari, Opera */
         -ms-transform: scale(0); /* IE 9 */
