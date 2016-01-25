@@ -684,3 +684,79 @@ function build_query_search($gender = null, $height = null, $age = null) {
     
     return $meta_query;
 }
+
+function upload_custom_post($arg = null) {
+    $post = array(
+        'post_title' => $arg['fullname'],
+        'post_status' => 'pending', 
+        'post_type' => $arg['custom_post']
+    );
+    
+    $post_id = wp_insert_post( $post );
+    
+    if ($arg['custom_post'] == 'models') {
+        wp_set_object_terms( $post_id, $arg['taxo']['term'], $arg['taxo']['tax']);
+    }
+    
+    // Birthday
+    update_field("field_569e3332a975e", $arg['birthday'], $post_id);
+    
+    // Status
+    update_field("field_569e337aa975f", $arg['status'], $post_id);
+    
+    // Gender
+    update_field("field_569e33f8a9760", $arg['gender'], $post_id);
+    
+    // Address
+    update_field("field_569e342fa9761", $arg['address'], $post_id);
+    
+    // Email
+    update_field("field_569e3464a9762", $arg['email'], $post_id);
+    
+    // Facebook
+    update_field("field_569e348fa9763", $arg['facebook'], $post_id);
+    
+    // Tel
+    update_field("field_569e34c4a9764", $arg['tel'], $post_id);
+    
+    // Height
+    update_field("field_569e34efa9765", $arg['height'], $post_id);
+    
+    // Weight
+    update_field("field_569e3543a9766", $arg['weight'], $post_id);
+    
+    // Body 1
+    update_field("field_569e3596a9767", $arg['body1'], $post_id);
+    
+    // Body 2
+    update_field("field_569e3609a9768", $arg['body2'], $post_id);
+    
+    // Body 3
+    update_field("field_569e3625a9769", $arg['body3'], $post_id);
+    
+    // Background
+    update_field("field_569e3653a976a", $arg['background'], $post_id);
+    
+    // Language
+    update_field("field_569e3685a976b", $arg['language'], $post_id);
+    
+    // Exp
+    update_field("field_569e36a9a976c", $arg['exp'], $post_id);
+    
+    return $post_id;
+}
+
+function kv_handle_attachment($file_handler, $post_id, $set_thu = false) {
+	// check to make sure its a successful upload
+	if ($_FILES[$file_handler]['error'] !== UPLOAD_ERR_OK) __return_false();
+
+	require_once(ABSPATH . "wp-admin" . '/includes/image.php');
+	require_once(ABSPATH . "wp-admin" . '/includes/file.php');
+	require_once(ABSPATH . "wp-admin" . '/includes/media.php');
+
+	$attach_id = media_handle_upload( $file_handler, $post_id );
+
+         // If you want to set a featured image frmo your uploads. 
+	if ($set_thu) set_post_thumbnail($post_id, $attach_id);
+	return $attach_id;
+}

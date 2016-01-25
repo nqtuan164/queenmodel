@@ -32,12 +32,10 @@
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
 </script>
-<div id="page" class="site">
+<div class="bg" style="background:url('<?php echo get_template_directory_uri(); ?>/img/444.jpg');"></div>
+<div id="page" class="site" >
 	<div class="site-inner">
-
-        
 		<header id="masthead" class="site-header" role="banner">
-            
             <div class="container header">
                 <div class="row">
                     <div class="col-md-4 col-md-offset-8">
@@ -65,5 +63,5 @@
                 </div>
             </div>
             
-
+        </header>
 		<div id="content" class="site-content">

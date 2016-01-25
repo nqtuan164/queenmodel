@@ -8,12 +8,14 @@
  */
 get_header();
 ?>
-<div id="primary" class="content-area">
+<div id="primary" class="content-area" >
     <main id="main" class="site-main" role="main">
         <div class="content-block main-slider">
-            <a href="#">
+            <?php layerslider(1) ?>
+
+<!--            <a href="#">
                 <img src="<?php echo get_template_directory_uri(); ?>/img/slide/1.jpg" alt="">
-            </a>
+            </a>-->
         </div>
 
         <div class="container">
@@ -50,7 +52,7 @@ get_header();
                                                 <img src="<?php echo $images[0]['sizes']['medium']; ?>" alt="">
                                             <?php else: ?>
                                                 <img src="http://placehold.it/350x150" alt="">
-                                            <?php endif; ?>
+                                                <?php endif; ?>
 
                                             <figcaption>
                                                 <p><?php the_title(); ?></p>

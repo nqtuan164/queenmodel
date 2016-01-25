@@ -23,6 +23,17 @@
     transition: @agr;
 }
 
+.divider(@color, @width) {
+    width: @width;
+    margin: auto;
+    height: 1px;
+    background: @color;
+}
+
+input[type="radio"], input[type="checkbox"] {
+    margin: 1px 0 0;
+    margin-top: 1px \9;
+}
 
 .ul {
     list-style: none;
@@ -59,16 +70,37 @@ body {
     background-color: @black00;
     margin: 0;
 }
-
-canvas {
+/*#page {
+        width: 1240px;
+        margin: 0px auto 20px auto;
+        position: relative;
+        padding: 0px 20px 20px;
+        background: rgba(255, 255, 255, 0.2);
+        box-shadow: 0px 0px 10px #000;
+        border-bottom: 5px solid @blue;
+        border-top: 5px solid @blue;
+}*/
+.bg {
+    background-repeat: repeat, no-repeat;
+    background-size: none, cover;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+/*canvas {
     position: absolute;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     -moz-backface-visibility: hidden;
     -ms-backface-visibility: hidden;
+}*/
+
+.site-inner {
+    .container {
+        background-color: rgba(17,17,17,0.5);
+    }
 }
-
-
 
 #container {
     position: absolute;
@@ -83,6 +115,9 @@ canvas {
 
 
 /* HEADER */
+.header {
+    padding-bottom: 30px;
+}
 .logo {
     display: block;
     margin-top: -20px;
@@ -172,30 +207,34 @@ canvas {
 }
 /* SLIDER */
 .main-slider {
-    margin-top: 10px !important;
-    a {
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+   // margin-top: 10px !important;
+/*    margin-left: -20px !important;
+    margin-right: -20px !important;*/
+/*    a {
         display: block;
         img {
             width: 100%;
         }
-    }
+    }*/
 
-    &::before {
+/*    &::before {
         content: '';
         display: block;
-        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,7db9e8+100,000000+100&1+0,0+100 */
-        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+14,000000+85,000000+85&1+14,0+85,0+85 */
-        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#111111+14,000000+85,000000+85&1+14,0+85,0+85 */
-        background: -moz-linear-gradient(top,  rgba(17,17,17,1) 14%, rgba(0,0,0,0) 85%); /* FF3.6-15 */
-        background: -webkit-linear-gradient(top,  rgba(17,17,17,1) 14%,rgba(0,0,0,0) 85%); /* Chrome10-25,Safari5.1-6 */
-        background: linear-gradient(to bottom,  rgba(17,17,17,1) 14%,rgba(0,0,0,0) 85%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#111111', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+         Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,7db9e8+100,000000+100&1+0,0+100 
+         Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+14,000000+85,000000+85&1+14,0+85,0+85 
+         Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#111111+14,000000+85,000000+85&1+14,0+85,0+85 
+        background: -moz-linear-gradient(top,  rgba(17,17,17,1) 14%, rgba(0,0,0,0) 85%);  FF3.6-15 
+        background: -webkit-linear-gradient(top,  rgba(17,17,17,1) 14%,rgba(0,0,0,0) 85%);  Chrome10-25,Safari5.1-6 
+        background: linear-gradient(to bottom,  rgba(17,17,17,1) 14%,rgba(0,0,0,0) 85%);  W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ 
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#111111', endColorstr='#00000000',GradientType=0 );  IE6-9 
 
         position: absolute;
         width: 100%;
         height: 70px;
         z-index: 100;
-    }
+    }*/
 }
 /*BREADSCRUMB*/
 .breadcrumbs {
@@ -214,7 +253,8 @@ canvas {
 
 /* HOME CONTENT BLOCK */
 .content-block {
-    margin: 30px 0px;
+    padding-top: 30px;
+    padding-bottom: 30px;
     h2.content-block-title {
         font-size: 30px;
         color: @blue;
@@ -496,9 +536,12 @@ canvas {
 
 .content-page {
     .content-page-header {
+        .container {
+            background: none;
+        }
         background: url('../img/breadscrumb1.jpg') right no-repeat;
         height: 150px;
-        margin-top: 30px;
+/*        margin-top: 30px;*/
         .content-page-title {
             margin-top: 40px;
         }
@@ -515,8 +558,8 @@ canvas {
             content: @fa-var-angle-right;
         }
     }
-    .content-page-body {
-        padding: 30px 0px 50px 0px;
+    .content-page-body .container {
+        padding: 30px 15px 50px 15px;
     }
 }
 
@@ -868,13 +911,161 @@ canvas {
             }
         }
     }
+    
+    .post-thumbnail {
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+}
+.sidebar {
+    .widget {
+        margin-bottom: 30px;
+        margin-top: 25px;
+    }
+    .widget-title {
+        margin-top: 0;
+        font-size: 20px;
+        color: #00baab;
+        margin-bottom: 17px;
+        font-weight: bold;
+    }
+    .widget_recent_entries {
+        ul {
+            .ul;
+            a {
+                .a;
+                line-height: 2;
+                color: @white;
+                .transition(@trans-arguments);
+                &::before {
+                    font-family: @font-awesome;
+                    content: @fa-var-angle-right;
+                    margin-right: 10px;
+                }
+                
+                &:hover, &:focus, &:active {
+                    color: @blue;
+                }
+            }
+            
+        }
+    }
+
 }
 
+.create-profile {
+    position: relative;
+    overflow: hidden;
+    padding: 30px 20px 50px 20px;
+    margin: 70px 0px;
+    border-top: 10px solid @blue;
+    border-bottom: 5px solid @blue;
+    background: rgba(255,255,255,0.15);
+    box-shadow: 0px 0px 10px #000;
+    .divider {
+        .divider(@white, 100%);
+    }
+    .control-label {
+        text-align: left;
+    }
+    .main-radio {
+        width: 100%;
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 5px;
+        input[type=radio] {
+            
+            margin: 3px 0 0 -20px;
+        }
+    }
+    .radio {
+        margin-bottom: 10px;
+    }
+    .radio-inline.first {
+        margin-left: 50px;
+    }
+    h1 {
+            text-align: center;
+    text-transform: uppercase;
+    font-weight: 100;
+    margin-bottom: 50px;
+    }
+    
+    
+    .upload-image {
+        height: 85px;
+        border: 2px dashed #efefef;
+        margin: 15px 0px;
+        text-align: center;
+        
+        .control-label {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            padding-top: 20px;
+        }
+        
+        input[type="file"] {
+            visibility: hidden;
+        }
+        .dragover {
+            
+        }
+    }
+    
+    .btn-create-profile {
+        margin: auto;
+        background: @blue;
+        font-size: 16px;
+        padding: 10px 60px;
+        &:hover, &:active, &:focus {
+            color: @white;
+            outline: none;
+        }
+    }
+    
+    .inputImages-thumb {
+        ul {
+            .ul;
+            li {
+                width: 30px;
+                height: 30px;
+                position: relative;
+                overflow: hidden;
+                display: inline-block;
+            }
+        }
+    }
+}
+.form-header {
+    /*Chrome,Safari*/
+    -webkit-clip-path: polygon(0px 100px,200px 100px,250px 0px,0px 0px);
+
+    /*Firefox*/
+    clip-path: url("#clipPolygon");
+    width: 250px;
+    height: 100px;
+    background: @blue;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    img {
+        width: 55%;
+        margin-left: 30px;
+        
+    }
+    
+    
+}
 /* FOOTER */
 .footer {
-    background: @black02;
+    background: fade(@black02, 95%);
     padding-top: 50px;
-
+    .container {
+        background: none;
+    }
     .logo {
         width: 50%;
         display: block;
@@ -915,18 +1106,91 @@ canvas {
         padding-bottom: 20px;
     }
 }
-.sidebar {
-    .widget {
-        margin-bottom: 30px;
-    }
-    .widget-title {
-        margin-top: 0;
-        font-size: 20px;
-        color: #00baab;
-        margin-bottom: 17px;
-        font-weight: bold;
-    }
 
+.page-template-page-intro {
+    width: 100%;
+    height: 100%;
+    
+    .language-bar {
+            position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+        .language-chooser {
+            .ul;
+            li {
+                display: inline-block;
+                    margin: 0px 20px;
+                a {
+                    display: block;
+                    color: @white;
+                    font-size: 14px;
+                    
+                    &:hover,&:active,&:focus {
+                        color: @blue;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+    
+    .contact-info {
+            position: absolute;
+    top: 50px;
+    right: 50px;
+        ul {
+            .ul;
+            li {
+                display: inline-block;
+                a {
+                    display: block;
+                    color: @blue;
+                    &:before {
+                        content: '';
+                        display: block;
+                        background: url(../img/sprite.png) no-repeat top left;
+                        width: 39px;
+                        height: 39px;
+                        float: left;
+                        margin-right: 10px;
+                    }
+                    &:hover,&:active,&:focus {
+                        text-decoration: none;
+                    }
+                }
+                &.tel {
+                        position: relative;
+    top: -4px;
+                }
+                &.tel a {
+                    width: 170px;
+                    height: 39px;
+                    letter-spacing: 2px;
+                    line-height: 1.5;
+                }
+                &.social a {
+                    margin: 0px 10px;
+                }
+                &.social-fb a {
+                    width: 39px;
+                    height: 39px;
+                    &:before {
+                        background-position: -39px 0px;
+                    }
+                }
+                
+                &.social-gg a {
+                    width: 39px;
+                    height: 39px;
+                    &:before {
+                        background-position: right top;
+                    }
+                }
+            }
+            
+        }
+    }
 }
 
 @-webkit-keyframes checkbox-effect {

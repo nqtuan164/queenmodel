@@ -51,13 +51,20 @@ get_header();
                                 
                                 $the_query = new WP_Query($args);
                                 while ($the_query->have_posts()) : $the_query->the_post();
+                                    ?>
+                                    <article id="post-<?php the_ID(); ?>" <?php post_class('news-item col-md-6'); ?>>
+                                        <div class="news-img"><a href="#"><?php if ( has_post_thumbnail() ) { the_post_thumbnail('news-thumbnails', $image_attr); }  ?></a></div>
+                                        <div class="news-info">
+                                            <h2><a href="<?php echo the_permalink(); ?>"><?php the_title() ?></a></h2>
+                                            <p>
+                                                <?php the_content(); ?>
+                                            </p>
+                                            <a href="<?php echo the_permalink(); ?>" class="btn-more"><?php _e("[:en]More[:vi]Chi tiết"); ?></a>
+                                        </div>
+                                    </article>
 
-                                    /*
-                                     * Include the Post-Format-specific template for the content.
-                                     * If you want to override this in a child theme, then include a file
-                                     * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-                                     */
-                                    get_template_part( 'template-parts/content-news', get_post_format() );
+                                    
+                                    <?php
 
                                 // End the loop.
                                 endwhile;
@@ -65,13 +72,16 @@ get_header();
                                 
                                 </div>
                                 <div class="row">
-                                    <?php
-                                if (function_exists(custom_pagination)) {
-                                    //echo "kaka";
-                                    custom_pagination($the_query->max_num_pages, 2, $paged);
-                                }
-                                wp_reset_query();
-                                ?>
+                                    <div class="col-md-12">
+                                        <?php
+                                            if (function_exists(custom_pagination)) {
+                                                //echo "kaka";
+                                                custom_pagination($the_query->max_num_pages, 2, $paged);
+                                            }
+                                            wp_reset_query();
+                                        ?>
+                                    </div>
+                                    
                                 </div>
                             </div>
                             <div class="col-md-4">
