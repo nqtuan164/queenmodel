@@ -127,9 +127,7 @@ if (isset($_POST['btn-create-profile'])) {
 
 
 ?>
-<div id="primary" class="content-area"
-    style="margin-top: 20px; background: url('<?php echo get_template_directory_uri() ?>/img/444.jpg') no-repeat center; background-size: cover;"
-     >
+<div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
         <div class="container">
             <div class="row">
@@ -148,15 +146,15 @@ if (isset($_POST['btn-create-profile'])) {
                         <h1><?php _e('[:vi]Form đăng ký Model/PG/PB'); ?></h1>
                         <div class="col-md-6 left-col">
                             <div class="form-group">
-                                <label for="inputFullName" class="col-sm-3 control-label"><?php _e('[:en]Full Name[:vi]Họ và Tên') ?></label>
+                                <label for="inputFullName" class="col-sm-3 control-label"><?php _e('[:en]Full Name[:vi]Họ và Tên') ?><span class="required">*</span></label>
                                 <div class="col-sm-9">
-                                    <input type="text" name="fullname" class="form-control" id="inputFullName" placeholder="Lê Ngọc Minh Châu">
+                                    <input type="text" name="fullname" class="form-control" id="inputFullName" placeholder="Lê Ngọc Minh Châu" required>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="inputBirthday" class="col-sm-3 control-label"><?php _e('[:en]Birthday[:vi]Ngày sinh') ?></label>
+                                <label for="inputBirthday" class="col-sm-3 control-label"><?php _e('[:en]Birthday[:vi]Ngày sinh') ?><span class="required">*</span></label>
                                 <div class="col-sm-9">
-                                    <input type="date" name="birthday" class="form-control" id="inputBirthday" placeholder="02/01/1991">
+                                    <input type="date" name="birthday" class="form-control" id="inputBirthday" placeholder="02/01/1991" required>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -167,7 +165,7 @@ if (isset($_POST['btn-create-profile'])) {
                                         <option value="married">Đã kết hôn</option>
                                     </select>
                                 </div>
-                                <label for="inputGender" class="control-label"><?php _e('[:en]Gender[:vi]Giới tính') ?>&nbsp;</label>
+                                <label for="inputGender" class="control-label"><?php _e('[:en]Gender[:vi]Giới tính') ?><span class="required">*</span>&nbsp;</label>
                                 <label class="radio-inline">
                                     <input type="radio" name="gender" id="inlineRadio1" value="female"> <?php _e('[:en]Female[:vi]Nữ') ?>
                                 </label>
@@ -184,9 +182,9 @@ if (isset($_POST['btn-create-profile'])) {
                             </div>
                             
                             <div class="form-group">
-                                <label for="inputEmail" class="col-sm-3 control-label"><?php _e('[:en]Email[:vi]Email') ?></label>
+                                <label for="inputEmail" class="col-sm-3 control-label"><?php _e('[:en]Email[:vi]Email') ?><span class="required">*</span></label>
                                 <div class="col-sm-9">
-                                    <input type="email" name="email" class="form-control" id="inputEmail" placeholder="sample@gmail.com">
+                                    <input type="email" name="email" class="form-control" id="inputEmail" placeholder="sample@gmail.com" required>
                                 </div>
                             </div>
                             
@@ -198,9 +196,9 @@ if (isset($_POST['btn-create-profile'])) {
                             </div>
                             
                             <div class="form-group">
-                                <label for="inputTel" class="col-sm-3 control-label"><?php _e('[:en]Tel[:vi]Di động') ?></label>
+                                <label for="inputTel" class="col-sm-3 control-label"><?php _e('[:en]Tel[:vi]Di động') ?><span class="required">*</span></label>
                                 <div class="col-sm-9">
-                                    <input type="tel" name="tel" class="form-control" id="inputTel" placeholder="0901.XXX.XXX.XXX">
+                                    <input type="tel" name="tel" class="form-control" id="inputTel" placeholder="0901.XXX.XXX.XXX" required>
                                 </div>
                             </div>
                             

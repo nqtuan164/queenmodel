@@ -423,10 +423,13 @@ function theme_name_style() {
     
     wp_enqueue_style('my-swiper', get_template_directory_uri() . '/css/swiper.min.css');
     wp_enqueue_style('my-fancy', get_template_directory_uri() . '/css/jquery.fancybox.css');
+    
     wp_enqueue_style('my-css', get_template_directory_uri() . '/css/style.css');
+    //wp_enqueue_style('my-datepicker', get_template_directory_uri() . '/css/bootstrap-datepicker3.css');
     
     wp_enqueue_script('my-swiper', get_template_directory_uri() . '/js/swiper.min.js', array(), '', true);
     wp_enqueue_script('my-bootstrap', get_template_directory_uri() . '/js/bootstrap.js', array(), '', true);
+    wp_enqueue_script('my-datepicker', get_template_directory_uri() . '/js/bootstrap-datepicker.js', array(), '', true);
     wp_enqueue_script('my-mousewheel', get_template_directory_uri() . '/js/jquery.mousewheel-3.0.6.pack.js', array(), '', true);
     wp_enqueue_script('my-fancy', get_template_directory_uri() . '/js/jquery.fancybox.pack.js', array(), '', true);
     wp_enqueue_script('my-script', get_template_directory_uri() . '/js/script.js', array(), '', true);
@@ -759,4 +762,12 @@ function kv_handle_attachment($file_handler, $post_id, $set_thu = false) {
          // If you want to set a featured image frmo your uploads. 
 	if ($set_thu) set_post_thumbnail($post_id, $attach_id);
 	return $attach_id;
+}
+add_filter('addthis_post_exclude', 'my_addthis_post_exclude_filter');
+function my_addthis_post_exclude_filter($display)
+{
+if ( in_array(get_post_type(), array('models', 'pgpb')) )
+    $display = true;
+
+return $display;
 }

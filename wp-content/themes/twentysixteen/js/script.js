@@ -28,7 +28,11 @@ jQuery.noConflict();
         });
 
         $(".fancybox").fancybox();
-
+//        $("#inputBirthday").datepicker({
+//            format: 'mm/dd/yyyy',
+//            startDate: '-3d'
+//        });
+        
         $('#custom-post-model').on('change', function () {
             if ($(this).prop('checked')) {
                 $('.tax-pgpb').prop('checked', false);
@@ -134,17 +138,23 @@ jQuery.noConflict();
             //submitbutton = $id("submitbutton");
 
         // file select
-        fileselect.addEventListener("change", FileSelectHandler, false);
+        if (fileselect != null){
+            fileselect.addEventListener("change", FileSelectHandler, false);
+        }
+        
 
         // is XHR2 available?
         var xhr = new XMLHttpRequest();
         if (xhr.upload) {
 
             // file drop
-            filedrag.addEventListener("dragover", FileDragHover, false);
+            if (filedrag!= null) {
+                filedrag.addEventListener("dragover", FileDragHover, false);
             filedrag.addEventListener("dragleave", FileDragHover, false);
             filedrag.addEventListener("drop", FileSelectHandler, false);
             filedrag.style.display = "block";
+            }
+            
 
             // remove submit button
             //submitbutton.style.display = "none";

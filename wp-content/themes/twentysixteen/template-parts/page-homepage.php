@@ -122,11 +122,11 @@ get_header();
                                     the_post_thumbnail('news-thumbnails', $image_attr);
                                 } ?></a></div>
                                     <div class="news-info">
-                                        <h3><a href="#"><?php the_title() ?></a></h3>
+                                        <h3><a href="<?php the_permalink(); ?>"><?php the_title() ?></a></h3>
                                         <p>
                                 <?php the_content(); ?>
                                         </p>
-                                        <a href="#" class="btn-more"><?php _e("[:en]More[:vi]Chi tiết"); ?></a>
+                                        <a href="<?php the_permalink(); ?>" class="btn-more"><?php _e("[:en]More[:vi]Chi tiết"); ?></a>
                                     </div>
                                 </li>
                                 <?php endforeach;
@@ -136,6 +136,45 @@ get_header();
 
                         </ul>
                     </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="row">
+                <div class="content-block partners-list">
+                    <h2 class="content-block-title">Đối tác</h2>
+                    <div class="swiper-partner-slide-prev"><i class="fa fa-angle-left"></i></div>
+                    <div class="swiper-container partners-slide">
+                        <div class="swiper-wrapper">
+                            <?php
+                            $args = array(
+                                'posts_per_page' => 100,
+                                'offset' => 0,
+                                'orderby' => 'date',
+                                'order' => 'DESC',
+                                'post_type' => 'partner',
+                                'post_status' => 'publish');
+                            
+                            $myposts = get_posts($args);
+                            $image_attr = array(
+                                'alt' => trim(strip_tags($wp_postmeta->_wp_attachment_image_alt)),
+                                'title' => trim(strip_tags($attachment->post_title))
+                            );
+                            
+                            foreach ($myposts as $post) : setup_postdata($post);
+                            ?>
+                            
+                            <a href="<?php the_field('partner_link'); ?>" target="_blank" class="swiper-slide partner-item">
+                                <?php if (has_post_thumbnail()) {
+                                    the_post_thumbnail('medium', $image_attr);
+                                } ?>
+                            </a>
+                            
+                            <?php endforeach;  wp_reset_postdata();?>
+                        </div>
+                    </div>
+                    <div class="swiper-partner-slide-next"><i class="fa fa-angle-right"></i></div>
                 </div>
             </div>
         </div>

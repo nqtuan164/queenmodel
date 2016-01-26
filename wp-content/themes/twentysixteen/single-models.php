@@ -129,6 +129,11 @@ get_header(); ?>
                                 </td>
                             </tr>
                         </table>
+                        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56a7a9d555ad9f6f" async="async"></script>
+
+                        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                        <div class="addthis_sharing_toolbox"></div>
                     </div>
                 </div>
                 <div class="col-md-12">
