@@ -13,7 +13,7 @@
 <html <?php language_attributes(); ?> class="no-js" 
     style="width: 100%;height:100%; margin-top: 0px !important;">
 <head>
-	<meta charset="<?php bloginfo( 'charset' ); ?>">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<?php if ( is_singular() && pings_open( get_queried_object() ) ) : ?>

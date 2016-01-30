@@ -1235,3 +1235,19 @@ body {
         transform: scale(1);
     }
 }
+
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    .main-nav {
+        margin-top: 100px;
+    }
+    .main-nav li {
+        display: block;
+    }
+    .main-nav li:nth-of-type(n+4) {
+        float: none;
+    }
+    .search-link {
+        width: 100%;
+    }
+}

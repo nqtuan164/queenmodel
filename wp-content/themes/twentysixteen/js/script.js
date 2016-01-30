@@ -8,6 +8,12 @@ jQuery.noConflict();
             spaceBetween: 20,
             slidesPerColumn: 2,
             slidesPerView: 5,
+            breakpoints: {
+                480: {
+                    slidesPerView: 2,
+                    spaceBetween: 10,
+                }
+            }
         });
 
         var swiperPartner = new Swiper('.partners-slide', {
