@@ -6,20 +6,29 @@
  * @subpackage Queen Model
  * @since Twenty Sixteen 1.0
  */
-get_header('empty');
+get_header();?>
+
+<div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <p style="text-align: center;">
+                        <a href="javascript:history.go(-1)">Trở về trang chủ</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+
+
+<?php
 //echo get_template_directory_uri() . "/dompdf";
 //set_include_path(get_template_directory_uri() . "/dompdf");
 //echo __DIR__;
 require_once(__DIR__ . "/../dompdf/dompdf_config.inc.php");
-function _mime_content_type($filename) {
-    $result = new finfo();
 
-    if (is_resource($result) === true) {
-        return $result->file($filename, FILEINFO_MIME_TYPE);
-    }
-
-    return false;
-}
 $dompdf = new DOMPDF();
 
 if (isset($_GET['pid'])) {
@@ -30,8 +39,12 @@ $post = get_post($post_id);
 
 $images = get_field('model_image', $post_id);
 $image = '';
+
+//var_dump($images[0]);
+//echo $_SERVER["DOCUMENT_ROOT"];
+
 if ($images) {
-    $image = $images[0]['sizes']['large'];
+    $image = str_replace('http://localhost:81' ,$_SERVER["DOCUMENT_ROOT"], $images[0]['sizes']['large']) ;
 } else {
     $image = "http://placehold.it/350x150";
 }
@@ -41,14 +54,7 @@ $date = DateTime::createFromFormat('Ymd', get_field('model_birthday', $post_id))
 $field = get_field_object('model_status');
 $value = get_field('model_status');
 
-// Read image path, convert to base64 encoding
-$imageData = base64_encode(file_get_contents($image));
-
-// Format the image SRC:  data:{mime};base64,{data};
-$src = 'data: '._mime_content_type($image).';base64,'.$imageData;
-
-// Echo out a sample image
-//echo '<img src="',%20%24src,%20'">';
+//echo $image;
 
 $html = '
 <html>
@@ -63,7 +69,7 @@ $html = '
 </head>
 <body>
 
-<img src="' . $src . '">
+<img src="' . $image . '">
 
 <table class="table table-striped">
     <tr>
@@ -129,4 +135,4 @@ fopen($file_to_save, "r");
 </script>
 
 
-<?php get_footer('empty'); ?>
+<?php get_footer(); ?>

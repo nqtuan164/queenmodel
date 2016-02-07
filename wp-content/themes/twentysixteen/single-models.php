@@ -134,6 +134,10 @@ get_header(); ?>
 
                         <!-- Go to www.addthis.com/dashboard to customize your tools -->
                         <div class="addthis_sharing_toolbox"></div>
+                        
+                        
+                        <a href="<?php echo home_url('/printer/?pid=' . get_the_ID()) ?>" class="print-btn">In profile</a>
+                        
                     </div>
                 </div>
                 <div class="col-md-12">

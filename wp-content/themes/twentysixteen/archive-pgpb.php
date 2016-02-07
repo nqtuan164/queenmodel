@@ -104,7 +104,7 @@ get_header();
                         $query = build_query_search($gender, $height, $age);
                         //var_dump($query);
                         $args = array(
-                            'posts_per_page'    => 2,
+                            'posts_per_page'    => 20,
                             'paged'             => $paged,
                             'orderby'           => 'date',
                             'order'             => 'DESC',

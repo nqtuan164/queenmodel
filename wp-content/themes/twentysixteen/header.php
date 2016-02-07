@@ -32,7 +32,13 @@
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
 </script>
-<div class="bg" style="background:url('<?php echo get_template_directory_uri(); ?>/img/444.jpg');"></div>
+
+<?php
+$background = array("111.jpg", "222.jpg", "333.jpg", "444.jpg", "555.jpg", "666.jpg", "777.jpg");
+$num_rand = rand(0, count($background)-1);
+?>
+
+<div class="bg" style="background:url('<?php echo get_template_directory_uri() . '/img/' . $background[$num_rand]; ?>');"></div>
 <div id="page" class="site" >
 	<div class="site-inner">
 		<header id="masthead" class="site-header" role="banner">
@@ -49,13 +55,27 @@
                 <div class="row">
                     <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="logo"><img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="Queen Model"></a>
                     
-                    <div class="col-md-12">
+                    <div class="col-md-12 hidden-sm hidden-xs">
                         <!-- Menu-->
                         <div class="main-nav">
                             <?php
                                 wp_nav_menu( array(
                                     'theme_location' => 'primary',
                                     'menu_class'     => 'primary-menu',
+                                 ) );
+                            ?>
+                        </div>
+                    </div>
+                    
+                    <div class="col-xs-12 col-sm-12 hidden-md hidden-lg">
+                        <!-- Menu-->
+                        <div class="main-nav">
+                            <a class="menu-toggle">Click to show menu</a>
+                            <?php
+                                wp_nav_menu( array(
+                                    'menu'           => 'MainMenuMobile',
+                                    'theme_location' => 'primary',
+                                    'menu_class'     => 'primary-menu mobile-menu',
                                  ) );
                             ?>
                         </div>

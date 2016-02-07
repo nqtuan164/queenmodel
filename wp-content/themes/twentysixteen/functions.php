@@ -771,3 +771,6 @@ if ( in_array(get_post_type(), array('models', 'pgpb')) )
 
 return $display;
 }
+
+
+

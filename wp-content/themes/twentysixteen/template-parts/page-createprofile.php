@@ -8,6 +8,7 @@
  * @since Twenty Sixteen 1.0
  */
 get_header();
+require_once(__DIR__ . "/../PHPMailer/PHPMailerAutoload.php");
 
 if (isset($_POST['btn-create-profile'])) {
     $arg_insert = array();
@@ -122,11 +123,42 @@ if (isset($_POST['btn-create-profile'])) {
         
         update_field("field_569e36c6a976e", $attach_array, $uploaded_id);
     }
+    
+    
+    //$mail = new PHPMailer;
+
+    $mail->SMTPDebug = 3;                               // Enable verbose debug output
+
+    $mail->isSMTP();                                      // Set mailer to use SMTP
+    $mail->Host = 'smtp.gmail.com ';  // Specify main and backup SMTP servers
+    $mail->SMTPAuth = true;                               // Enable SMTP authentication
+    $mail->Username = 'info.queenmodel@gmail.com';                 // SMTP username
+    $mail->Password = 'sang2016';                           // SMTP password
+    $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
+    $mail->Port = 465;                                    // TCP port to connect to
+
+    $mail->setFrom('info.queenmodel@gmail.com', 'Queen Model');
+    $mail->addAddress($arg_insert['email'], $arg_insert['fullname']);     // Add a recipient
+
+    $mail->isHTML(true);                                  // Set email format to HTML
+    
+    $subject =  'Cảm ơn bạn đã đăng profile trên Queen Model';
+    
+    $mail->Subject = "=?UTF-8?B?".base64_encode($subject)."?=";
+    $mail->Body    = 'Cảm ơn <b>' . $arg_insert['fullname'] . '</b> đã gửi profile đến cho chúng tôi. <br />Chúng tôi sẽ liên hệ với bạn sớm nhất sau khi đã duyệt profile của bạn.';
+
+    if(!$mail->send()) {
+        echo '<script type="text/javascript">alert("Lưu profile thất bại<br />Mailer Error: ' . $mail->ErrorInfo . '");</script>';
+        //echo 'Mailer Error: ' . $mail->ErrorInfo;
+    } else {
+        echo '<script type="text/javascript">alert("Profile đã được lưu");</script>';
+    }
 }
 
 
 
 ?>
+
 <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
         <div class="container">

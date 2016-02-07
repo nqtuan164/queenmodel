@@ -23,7 +23,7 @@ get_header();
                 <div class="col-md-12">
                     <div class="content-block new-models">
                         <h2 class="content-block-title">Models / PG Mới</h2>
-                        <div class="swiper-models-slide-prev"><i class="fa fa-angle-left"></i></div>
+                        <div class="swiper-models-slide-prev hidden-xs hidden-sm"><i class="fa fa-angle-left"></i></div>
                         <div class="swiper-container models-slide">
                             <div class="swiper-wrapper">
                                 <?php
@@ -66,8 +66,12 @@ get_header();
 
                             </div>
                         </div>
-                        <div class="swiper-models-slide-next"><i class="fa fa-angle-right"></i></div>
-                        <a href="#" class="search-link"> <i class="fa fa-search"></i>Tìm kiếm</a>
+                        <div class="swiper-models-slide-next hidden-xs hidden-sm"><i class="fa fa-angle-right"></i></div>
+                        <div class="row">
+                            <a href="<?php echo home_url('/models') ?>" class="search-link col-md-offset-2 col-md-4"> <i class="fa fa-search"></i>Tìm kiếm Models</a>
+                            <a href="<?php echo home_url('/pgpb') ?>" class="search-link col-md-4"> <i class="fa fa-search"></i>Tìm kiếm PG/PB</a>
+                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -144,7 +148,7 @@ get_header();
             <div class="row">
                 <div class="content-block partners-list">
                     <h2 class="content-block-title">Đối tác</h2>
-                    <div class="swiper-partner-slide-prev"><i class="fa fa-angle-left"></i></div>
+                    <div class="swiper-partner-slide-prev hidden-xs hidden-sm"><i class="fa fa-angle-left"></i></div>
                     <div class="swiper-container partners-slide">
                         <div class="swiper-wrapper">
                             <?php
@@ -174,7 +178,7 @@ get_header();
                             <?php endforeach;  wp_reset_postdata();?>
                         </div>
                     </div>
-                    <div class="swiper-partner-slide-next"><i class="fa fa-angle-right"></i></div>
+                    <div class="swiper-partner-slide-next hidden-xs hidden-sm"><i class="fa fa-angle-right"></i></div>
                 </div>
             </div>
         </div>

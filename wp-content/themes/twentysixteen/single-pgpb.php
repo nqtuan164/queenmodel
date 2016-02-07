@@ -130,20 +130,13 @@ get_header(); ?>
                                 </td>
                             </tr>
                         </table>
-                        <!-- ADDTHIS BUTTON BEGIN -->
-                        <script type="text/javascript">
-                        var addthis_config = {
-                             pubid: "YOUR-PROFILE-ID"
-                        }
-                        </script>
+                        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                        <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-56a7a9d555ad9f6f" async="async"></script>
 
-                        <a href="http://www.addthis.com/bookmark.php?v=250" 
-                            class="addthis_button"><img 
-                            src="http://s7.addthis.com/static/btn/v2/lg-share-en.gif" 
-                            width="125" height="16" border="0" alt="Share" /></a>
-
-                        <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js"></script>
-                        <!-- ADDTHIS BUTTON END -->
+                        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                        <div class="addthis_sharing_toolbox"></div>
+                        
+                        <a href="<?php echo home_url('/printer/?pid=' . get_the_ID()) ?>" class="print-btn">In profile</a>
                     </div>
                 </div>
                 <div class="col-md-12">

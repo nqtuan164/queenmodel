@@ -24,6 +24,11 @@ get_header('empty');
                 </li>
             </ul>
         </div>
+        <div class="construction">
+            <p>
+                TRANG WEB HIỆN ĐANG TRONG QUÁ TRÌNH PHÁT TRIỂN
+            </p>
+        </div>
         <div class="language-bar">
             <ul class="language-chooser language-chooser-text qtranxs_language_chooser" id="qtranslate-chooser">
                 <li class="lang-vi"><a href="<?php echo home_url('/vi/home/') ?>" hreflang="vi" title="Tiếng Việt (vi)" class="qtranxs_text qtranxs_text_vi"><span>Tiếng Việt</span></a></li>
